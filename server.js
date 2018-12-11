@@ -9,7 +9,7 @@ const express           = require('express'),
 const PORT              = process.env.PORT || 3000,
       DB_URL            = process.env.DB_URL || utils.getDBLocalURL();
 
-const taskRoutes        = require('./routes/taskRoutes');
+const registerRoutes        = require('./routes/registerRoutes');
 
 const app = express();
 
@@ -19,12 +19,12 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 mongoose.connect(DB_URL, {useNewUrlParser: true});
 
-taskRoutes(app);
+registerRoutes(app);
 
 app.get('*', (req, res) => {
     res.json({response: 'Error'});
 });
 
 app.listen(PORT, () => {
-    console.log('Task API server listening at port: ' + PORT);
+    console.log('API server listening at port: ' + PORT);
 });

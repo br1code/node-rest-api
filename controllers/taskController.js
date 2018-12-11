@@ -12,7 +12,7 @@ function getAll(req, res) {
 function create(req, res) {
     Task.create(req.body.task, (err, task) => {
         if (err) res.send(err).status(400);
-        res.json(task);
+        res.json({task});
     });
 }
 
@@ -26,7 +26,7 @@ function getOne(req, res) {
 function update(req, res) {
     Task.findByIdAndUpdate(req.params.taskID, req.body.task, {new: true}, (err, task) => {
         if (err) res.send(err).status(400);
-        res.json(task);
+        res.json({task});
     });
 }
 
