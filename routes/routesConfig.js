@@ -1,6 +1,6 @@
 'use strict';
 
-function createRoute(routeName, modelName) {
+function createRoutes(routeName, modelName) {
     return {
         base: '/' + routeName,
         byId: '/' + routeName + '/:id',
@@ -9,7 +9,7 @@ function createRoute(routeName, modelName) {
 }
 
 const routes = [
-    createRoute('tasks', 'task')
+    createRoutes('tasks', 'task')
 ];
 
 module.exports = routes;
